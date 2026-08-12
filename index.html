@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiahui Qu</title>
+  <meta name="description" content="Jiahui Qu, MSc Financial Statistics at LSE. Statistics, language models, and the things people actually use.">
+  <meta property="og:title" content="Jiahui Qu">
+  <meta property="og:description" content="MSc Financial Statistics at LSE. Researcher and builder.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jiahuiqu17.github.io">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2a2a2a;
+      background: #fdfaf6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #c2410c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s ease;
+    }
+    a:hover { border-bottom-color: #c2410c; }
+
+    p { margin: 0 0 14px; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 40px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 70px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      position: sticky;
+      top: 60px;
+      align-self: start;
+    }
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5e8db 0%, #e8d5c0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-weight: 600;
+      color: #c2410c;
+      margin-bottom: 20px;
+      overflow: hidden;
+      letter-spacing: -2px;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .name {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+    }
+    .role {
+      font-size: 14px;
+      color: #6a6a6a;
+      margin: 0 0 22px;
+      line-height: 1.5;
+    }
+
+    .contacts { font-size: 14px; }
+    .contacts a {
+      display: block;
+      padding: 3px 0;
+      color: #4a4a4a;
+      border-bottom: none;
+    }
+    .contacts a:hover { color: #c2410c; }
+    .contacts a::before {
+      content: "›";
+      color: #c2410c;
+      margin-right: 8px;
+      font-weight: 600;
+    }
+
+    /* ---------- Main ---------- */
+    main { min-width: 0; }
+
+    .hero { margin-bottom: 60px; }
+    .hello {
+      font-size: 30px;
+      font-weight: 600;
+      margin: 0 0 18px;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+    }
+    .hero p { font-size: 16.5px; color: #2a2a2a; }
+
+    section { margin-bottom: 50px; }
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #6a6a6a;
+      margin: 0 0 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e8e2d8;
+    }
+
+    .item { margin-bottom: 26px; }
+    .item:last-child { margin-bottom: 0; }
+    .item-title {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    .item-meta {
+      color: #6a6a6a;
+      font-size: 14px;
+      margin-top: 3px;
+    }
+    .item-desc {
+      margin-top: 6px;
+      color: #4a4a4a;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .item-links {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    .item-links a { margin-right: 14px; }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      background: #fef0e6;
+      color: #c2410c;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: 2px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .badge-live {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .badge-prep {
+      background: #eef1f5;
+      color: #6a6a6a;
+    }
+
+    /* Timeline (Education / Experience) */
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .timeline-date {
+      color: #6a6a6a;
+      font-size: 14px;
+      padding-top: 1px;
+    }
+    .timeline-title {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    .timeline-meta {
+      color: #6a6a6a;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    /* Awards list */
+    .award-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .award-list li {
+      padding: 8px 0;
+      font-size: 15px;
+      color: #2a2a2a;
+      border-bottom: 1px dotted #e8e2d8;
+    }
+    .award-list li:last-child { border-bottom: none; }
+    .award-list .award-year {
+      color: #6a6a6a;
+      font-size: 13px;
+      margin-left: 8px;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding-top: 22px;
+      border-top: 1px solid #e8e2d8;
+      font-size: 13px;
+      color: #999;
+    }
+    footer p { margin: 4px 0; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+        gap: 40px;
+      }
+      .sidebar { position: static; }
+      .avatar { width: 120px; height: 120px; font-size: 36px; }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+        margin-bottom: 18px;
+      }
+      .timeline-date { font-size: 13px; }
+      .hello { font-size: 26px; }
+      .hero p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ========== Sidebar ========== -->
+    <aside class="sidebar">
+      <div class="avatar"><img src="avatar.png" alt="Jiahui Qu"></div>
+      <h1 class="name">Jiahui Qu</h1>
+      <p class="role">MSc Financial Statistics<br>London School of Economics</p>
+      <nav class="contacts">
+        <a href="mailto:yan123412347@gmail.com">Email</a>
+        <a href="https://github.com/jiahuiqu17" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=dISeEloAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://x.com/Yanmo3d" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </aside>
+
+    <!-- ========== Main ========== -->
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <p class="hello">Hello!</p>
+        <p>I'm <strong>Jiahui</strong>, an MSc student in Financial Statistics at the
+          <a href="https://www.lse.ac.uk/" target="_blank" rel="noopener">London School of Economics</a>,
+          graduating in March 2027. Before LSE, I read Mathematics and Statistics at the
+          <a href="https://www.ed.ac.uk/" target="_blank" rel="noopener">University of Edinburgh</a>,
+          with an exchange year at
+          <a href="https://www.cityu.edu.hk/" target="_blank" rel="noopener">City University of Hong Kong</a>.</p>
+
+        <p>I work on intelligent systems that interact with people. My research combines
+          statistical machine learning, language models, and human–AI interaction to study
+          how AI can support learning and decision-making. I am particularly interested in
+          when an AI system should intervene, when it should defer, and how its behaviour
+          changes what people learn, choose, and trust.</p>
+
+        <p>Outside of research I build things. I'm the founder of
+          <a href="https://ynotesapp.com" target="_blank" rel="noopener">YNotes</a>,
+          an AI-native iPad notebook now on the App Store, and I maintain
+          <a href="https://github.com/jiahuiqu17/paper-signal" target="_blank" rel="noopener">Paper Signal</a>,
+          an open-source Agent Skills pack for editorial image production.
+          I also built <a href="https://chat.yanapi.top/" target="_blank" rel="noopener">YanChat</a>,
+          a web client that rebuilds the GPT experience around better typography and reasoning that doesn't time out.</p>
+
+        <p>On the side, I publish literary fiction in Chinese under the pen name <strong>Yanchi</strong>.</p>
+      </section>
+
+      <!-- Research -->
+      <section>
+        <h2>Research</h2>
+
+        <div class="item">
+          <div class="item-title">
+            Calibrate Once, Choose the Beam: A Predictive Regime Test for Same-LM Search Guidance and Pruning
+            <span class="badge badge-live">Accepted</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong>, Yifang Qin, Boyang Zheng, Ziyi Zhou</div>
+          <div class="item-meta">ICML 2026 Workshop on Language Models for Planning (LM4Plan)</div>
+          <div class="item-desc">
+            A predictive regime test based on a single scalar (evaluator precision <em>p</em>) that
+            decides, before deployment, whether beam search guided by the same language model
+            outperforms independent sampling on planning tasks. Validated on maze-planning with
+            Qwen2.5-7B / 3B.
+          </div>
+          <div class="item-links">
+            <a href="https://openreview.net/forum?id=DQWtfGa84b" target="_blank" rel="noopener">OpenReview</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            Calibrate Once, Choose the Beam: A Pre-Deployment Compute-Allocation Rule for Same-LM Multimodal Search
+            <span class="badge badge-live">Accepted</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong>, Yifang Qin, Boyang Zheng, Ziyi Zhou</div>
+          <div class="item-meta">ICML 2026 Workshop on Scaling Compute Efficiency in LLMs (SCALE)</div>
+          <div class="item-desc">
+            A pre-deployment rule for allocating inference-time compute between beam search and
+            independent sampling in same-LM multimodal search. Extends the planning-only regime
+            test to a vision–language setting and calibrates once per model rather than per task.
+          </div>
+          <div class="item-links">
+            <a href="https://openreview.net/forum?id=8fUtM5b7QV" target="_blank" rel="noopener">OpenReview</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            Screen, Confirm, Then Search: Risk-Controlled Pre-Deployment Qualification for LM-Guided Search
+            <span class="badge">Under review</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong>, Boyang Zheng, Yifang Qin, Yudi Cao, Jiayu Fang</div>
+          <div class="item-meta">Manuscript under review at <em>TMLR</em></div>
+          <div class="item-desc">
+            Full-paper expansion of the ICML workshop paper. Formalises a three-stage qualification
+            pipeline (screen, confirm, search) with distribution-free risk-controlled guarantees
+            before deploying language-model guided search in production settings.
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            When Better Scores Select Worse Boards: Replacement-Level Audits for Teamfight Tactics Search
+            <span class="badge">Under review</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong>, Shizhao Xiong, Jiayu Fang, Tiyao Liu, Yifang Qin, Rong Fu, Haoran Liu, Xuanbo Su, Boyang Zheng</div>
+          <div class="item-desc">
+            Introduces replacement-level audits for evaluating LM-guided search algorithms. Shows
+            that higher-scoring candidates can be strictly worse than a baseline pick once evaluator
+            drift is accounted for, with a case study on Teamfight Tactics augment selection.
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            When Evidence Drifts: Evidence-State Routing and Guarded Revision Release for Long-Form Factual Generation
+            <span class="badge">Under review</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong>, Shizhao Xiong, Yifang Qin, Xue Mi, Jiayuan Di, Jiayu Fang, Yilan Wei, Xuanbo Su, Boyang Zheng, Ruby Cao</div>
+          <div class="item-desc">
+            A framework for long-form factual generation that tracks evidence states across revisions
+            and gates when updates are safe to release, reducing hallucinations under drifting evidence.
+          </div>
+        </div>
+
+        <!-- REMINDER: CHI is double-blind. When you actually submit to CHI 2027,
+             change the venue line below to just "Under review" and remove "CHI 2027"
+             to preserve anonymous review. -->
+        <div class="item">
+          <div class="item-title">
+            Lasso-to-Learn: Source-Anchored AI Practice Loops for Exam-Based Learning
+            <span class="badge badge-prep">In preparation</span>
+          </div>
+          <div class="item-meta"><strong>Jiahui Qu</strong></div>
+          <div class="item-meta">Targeting <em>CHI 2027</em></div>
+          <div class="item-desc">
+            Reimagines AI help in study apps as source-anchored, editable learning traces. Students
+            lasso a stuck point in a PDF, pick a help intensity, save AI responses back into the
+            source document, and turn solved problems into review cards and new handwritten practice.
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section>
+        <h2>Products</h2>
+
+        <div class="item">
+          <div class="item-title">
+            YNotes: AI-native iPad notebook
+            <span class="badge badge-live">Live</span>
+          </div>
+          <div class="item-desc">
+            A study-first notebook for students. Lasso-select any handwritten formula or PDF region
+            and ask AI for guided explanation. Built on SwiftUI and PencilKit, backed by Cloudflare
+            Workers and the DashScope API.
+          </div>
+          <div class="item-links">
+            <a href="https://ynotesapp.com" target="_blank" rel="noopener">Website</a>
+            <a href="https://www.google.com/search?q=YNotes+app+store" target="_blank" rel="noopener">App Store</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            Paper Signal: open-source research infrastructure
+            <span class="badge badge-live">Live</span>
+          </div>
+          <div class="item-desc">
+            An open-source Skill pack for Codex and Claude Code that turns photos, ideas, or research
+            into editorial-quality visuals. Preserves the subject's identity, composition, and material
+            craft rather than flattening them into a generic style template. MIT-licensed.
+          </div>
+          <div class="item-links">
+            <a href="https://github.com/jiahuiqu17/paper-signal" target="_blank" rel="noopener">GitHub ↗</a>
+            <span style="color:#6a6a6a;">★ 17</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            YanChat: a better interface for GPT
+            <span class="badge badge-live">Live</span>
+          </div>
+          <div class="item-desc">
+            A web client that rebuilds the GPT experience around faster loads, calmer typography,
+            real LaTeX rendering, and long-form reasoning that doesn't time out.
+          </div>
+          <div class="item-links">
+            <a href="https://chat.yanapi.top/" target="_blank" rel="noopener">Try it</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Writing -->
+      <section>
+        <h2>Writing</h2>
+        <p style="font-size:15px;color:#4a4a4a;margin-bottom:20px;">
+          I write literary fiction in Chinese under the pen name <strong>Yanchi</strong>.
+        </p>
+
+        <div class="item">
+          <div class="item-title"><em>Asymptote</em> (2026)</div>
+          <div class="item-desc">A novel set across Edinburgh and Cambridge. Published.</div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">
+            <em>To No One in Particular</em>
+            <span class="badge">In progress</span>
+          </div>
+          <div class="item-desc">
+            A diary-style collection moving between Edinburgh, Hong Kong, and London.
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section>
+        <h2>Experience</h2>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — Present</div>
+          <div>
+            <div class="timeline-title">Founder, YNotes</div>
+            <div class="timeline-meta">iOS, AI infrastructure, brand</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — Present</div>
+          <div>
+            <div class="timeline-title">Chief Strategy Officer, AI MCN Company</div>
+            <div class="timeline-meta">Wuhan, China</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div>
+            <div class="timeline-title">Quantitative Research Intern</div>
+            <div class="timeline-meta">Guoyuan Securities, Wuhan</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2022</div>
+          <div>
+            <div class="timeline-title">Quantitative Research Intern</div>
+            <div class="timeline-meta">Guotai Junan Securities, Shanghai</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards -->
+      <section>
+        <h2>Awards &amp; Honours</h2>
+        <ul class="award-list">
+          <li>Kaggle Silver Medal, The Pokémon Company: PTCG AI Battle Challenge Simulation<span class="award-year">2026</span></li>
+          <li>LSE Annual Scholarship, London School of Economics<span class="award-year">2025</span></li>
+          <li>Undergraduate Vacation Scholarship, University of Edinburgh<span class="award-year">2024</span></li>
+          <li>Kaggle Silver Medal, GoDaddy: Microbusiness Density Forecasting<span class="award-year">2023</span></li>
+          <li>Undergraduate Vacation Scholarship, University of Edinburgh<span class="award-year">2023</span></li>
+          <li>Edinburgh Leadership Programme Award, University of Edinburgh<span class="award-year">2023</span></li>
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h2>Education</h2>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — 2027</div>
+          <div>
+            <div class="timeline-title">London School of Economics</div>
+            <div class="timeline-meta">MSc, Financial Statistics</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2021 — 2025</div>
+          <div>
+            <div class="timeline-title">University of Edinburgh</div>
+            <div class="timeline-meta">BSc, Mathematics &amp; Statistics</div>
+            <div class="timeline-meta">Exchange year at City University of Hong Kong (2023 — 2024)</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2026 Jiahui Qu</p>
+        <p>Last updated May 2026 · Built with HTML and CSS · Hosted on GitHub Pages</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
